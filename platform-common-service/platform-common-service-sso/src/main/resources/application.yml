@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: sso-server
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: postgresql
+    url: jdbc:postgresql://192.168.1.140:5432/auth
+    username:
+    password:
+    driver-class-name:
+  redis:
+    host: localhost
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
+
+logging:
+  level:
+    org.springframework: DEBUG
+    org.springframework.security: DEBUG
